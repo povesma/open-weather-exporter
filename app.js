@@ -1,18 +1,15 @@
 'use strict';
-// TODOs
-// =====
 
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 
-const PORT = process.env.OPEN_WEATHER_EXPORTER_PORT || '8000';
-const HOST = process.env.OPEN_WEATHER_EXPORTER_HOST || '0.0.0.0';
+const PORT = '9100';
+const HOST = '0.0.0.0';
 const API_KEY = process.env.OPEN_WEATHER_EXPORTER_API_KEY || 'api_key_required';
+const API_LOCATION_ID = process.env.OPEN_WEATHER_EXPORTER_LOCATION_ID || 'location_id_required';
 const API_ENDPOINT = `https://api.openweathermap.org/data/2.5/weather`;
-const API_LOCATION_ID = process.env.OPEN_WEATHER_EXPORTER_LOCATION_ID || '26136439';
 const API_STRING = `${API_ENDPOINT}?id=${API_LOCATION_ID}&units=metric&appid=${API_KEY}`;
-
 const app = express();
 
 
@@ -85,7 +82,7 @@ function formatJsonMetrics(data) {
 
 // Handles requests to home page
 app.get('/', (req, res, next) => {
-  res.send('OpenWeatherMap.org exporter for Prometheus');
+  res.send('OpenWeatherMap.org Exporter for Prometheus');
 });
 
 
