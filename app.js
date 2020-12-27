@@ -84,7 +84,7 @@ function formatJsonMetrics(data) {
 
 // Handles requests to home page
 app.get('/', (req, res, next) => {
-  res.send('OpenWeatherMap.org Exporter for Prometheus');
+  res.send('OpenWeatherMap.org Exporter for Prometheus. Go to <a href=/metrics>/metrics</a>');
 });
 
 
