@@ -9,6 +9,8 @@ OPEN_WEATHER_API_KEY=abcdef123456890
 OPEN_WEATHER_LOCATION_ID=2636439
 ```
 
+Location IDs can be found here: http://bulk.openweathermap.org/sample/city.list.json.gz
+
 **To build**, you need the Docker environment installed. 
 
 ```bash
@@ -28,12 +30,21 @@ curl localhost:9100/metrics
 
 ```
 #HELP sensor_air_temperature Air temperature in degrees Celsius (˚C)
-#TYPE sensor_air_temperature guage
+#TYPE sensor_air_temperature gauge
 sensor_air_temperature{location="OpenWeather"} 18.62
 #HELP sensor_air_relative_humidity Air relative humidity in percentage (%H)
-#TYPE sensor_air_relative_humidity guage
+#TYPE sensor_air_relative_humidity gauge
 sensor_air_relative_humidity{location="OpenWeather"} 77
 #HELP sensor_air_pressure Air pressure in hectopascals (hPa)
-#TYPE sensor_air_pressure guage
+#TYPE sensor_air_pressure gauge
 sensor_air_pressure{location="OpenWeather"} 1027
 ```
+
+# Change plan
+
+1. Enable city by name / country
+1. Enable multi city config, respectively add a"local" label to the metrics
+1. Enable port configuration
+1. Enable cached responses / scrape Openweather API with an interval
+1. Enable temperature C / F switch
+1. Enable ctrl+c stop

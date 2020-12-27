@@ -12,6 +12,8 @@ const API_ENDPOINT = `https://api.openweathermap.org/data/2.5/weather`;
 const API_STRING = `${API_ENDPOINT}?id=${API_LOCATION_ID}&units=metric&appid=${API_KEY}`;
 const app = express();
 
+var SCRAPE_INTERVAL = null; // If number - then call OpenWeather API with this interval, and respond to /metrics with a cached values
+
 
 // Fetches data from OpenWeather API
 async function fetchWeatherData() {
@@ -120,6 +122,23 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('500 Server error');
 })
+
+// Loads configuration:
+// 1. Cities IDs
+// 2. Cities names / Countries
+// 3. API Key
+// 4. Scrape interval
+
+function config() {
+
+}
+
+config();
+
+process.on('SIGINT', () => {
+  console.info("Interrupted")
+  process.exit(0)
+});
 
 
 // Start listening for requests
