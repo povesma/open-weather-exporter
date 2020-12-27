@@ -39,7 +39,7 @@ function formatOpenMetrics(data) {
   sensor = {
     name: 'sensor_air_temperature',
     description: 'Air temperature in degrees Celsius (˚C)',
-    type: 'guage',
+    type: 'gauge',
     source: 'OpenWeather',
     value: data.main.temp
   };
@@ -49,7 +49,7 @@ function formatOpenMetrics(data) {
   sensor = {
     name: 'sensor_air_relative_humidity',
     description: 'Air relative humidity in percentage (%H)',
-    type: 'guage',
+    type: 'gauge',
     source: 'OpenWeather',
     value: data.main.humidity
   };
