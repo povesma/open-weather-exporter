@@ -7,6 +7,7 @@ The app relies on environment variables for configuration. These shoud be placed
 ```bash
 OPEN_WEATHER_API_KEY=abcdef123456890
 OPEN_WEATHER_LOCATION_ID=2636439
+SCRAPE_INTERVAL=0 | sec # will fetch from OpenWeatherMap API every $sec seconds
 ```
 
 Location IDs can be found here: http://bulk.openweathermap.org/sample/city.list.json.gz
@@ -45,6 +46,6 @@ sensor_air_pressure{location="OpenWeather"} 1027
 1. Enable city by name / country
 1. Enable multi city config, respectively add a"local" label to the metrics
 1. Enable port configuration
-1. Enable cached responses / scrape Openweather API with an interval
+1. Enable cached responses / scrape Openweather API with an interval - DONE
 1. Enable temperature C / F switch
-1. Enable ctrl+c stop
+1. Enable ctrl+c stop - DONE
